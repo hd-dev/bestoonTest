@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 class Token(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     token = models.CharField(max_length=48)
+    def __unicode__(self):
+        return "{}_Token".format(self.user)
 
 
 class Expense(models.Model):
